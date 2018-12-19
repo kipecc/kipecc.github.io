@@ -1,3 +1,26 @@
+.head {
+    position: fixed; /* Фиксированное положение */
+    right: 5px; /* Расстояние от правого края окна браузера */
+    top: 20%; /* Расстояние сверху */
+    /*padding: 10px; /* Поля вокруг текста */ 
+    /*background: #ffe; /* Цвет фона */ 
+    /*border: 1px solid #333; /* Параметры рамки */ 
+   }
+.text {
+    width: 95%;
+   }
+.sticky {
+  position: sticky;
+  top: 0;
+  min-height: 2em;
+  background: #515962;
+}
+.sticky_bottom {
+  position: sticky;
+  bottom: 0;
+  min-height: 2em;
+  background: #515962;
+}
 body{
 	background: #515962;
 	color: #ffffff;

@@ -1,0 +1,216 @@
+  <!doctype html>
+<html theme="light" lang="ru" data-controller="index" aside="true">
+<head>
+  <meta charset="utf-8">
+  <title>Экзаменатор</title>
+  
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#f5f4f2">
+  <meta name="viewport" id="view" content="width=device-width, initial-scale=1.0, minimum-scale=1.0,
+  maximum-scale=1.0" />
+  <link rel="preload" as="style" href="../css/bor.css">
+  <link rel="preload" as="script" href="../css/bor.js">
+  <link rel="stylesheet" href="../css/bor.css">
+    <script src="../css/bor.js" async data-turbolinks-eval="false"></script>
+    <script>
+    var nextTheme = {
+      light: 'dark',
+      dark: 'light'
+    };
+    var colors = {
+      light:'#f5f4f2',
+      dark: '#252323'
+    };
+    var tokens = ['aside', 'theme'];
+    var meta = document.querySelector('[name="theme-color"]');
+    for (var i = 0; i < tokens.length; i++) {
+      var name = tokens[i];
+      var value = localStorage.getItem(name);
+      if (value != null) {
+        document.documentElement.setAttribute(name, value);
+        name === 'theme' && meta.setAttribute('content', colors[value]);
+      }
+    }
+  </script>
+
+  </head>
+<body data-turbolinks-suppress-warning>
+  <header class="header">
+  <div class="header__projects"></div>
+  <div class="header__wrap">
+    <div class="header__title">
+      <a class="header__title_item info " href="../faq.html" aria-label="О проекте">
+        <svg class="header__title_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+         <path d="M20 26a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0 1a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm1-10a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm0 7v-5h-2v5h2z"/>
+        </svg>
+      </a>
+      <h1 class="header__title_wrap">
+        <span class="header__title_name">
+          Question.net&nbsp;— Экзаменатор
+        </span>
+      </h1>
+      <div class="header__title_item theme">
+        <svg class="header__title_icon" xmlns="http://www.w3.org/200но0/svg" viewBox="0 0 40 40" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+          <g class="moon">
+            <path d="M25.295 23.652c-.175-.094-.828.06-1.11.06-3.785 0-6.854-2.931-6.854-6.644 0-.402 0-.736.126-1.12a.13.13 0 0 0 .007-.049c-.007-.12-.066-.225-.166-.104a6.683 6.683 0 0 0-.345.446c-.578.834-.945 2.006-.945 3.206 0 3.073 2.54 5.564 5.672 5.564 1.651 0 3.26-.796 3.615-1.359zm.671-1.208c-.437.183-.776.28-1.782.28-3.228 0-5.844-2.568-5.844-5.735 0-.91.113-1.473.244-1.993l.002-.007.05-.194.013-.052c.04-.155.08-.31.119-.474.034-.146-.076-.285-.228-.268a2.1 2.1 0 0 0-.467.113 2.703 2.703 0 0 0-.34.15c-1.388.73-2.733 2.817-2.733 5.183C15 23.067 17.99 26 21.68 26c2.49 0 4.468-1.222 5.114-2.83l.021-.053a3.162 3.162 0 0 0 .183-.742c.02-.17-.15-.289-.312-.228a10.53 10.53 0 0 0-.547.224l-.145.061-.027.012z"/>
+          </g>
+          <g class="sun">
+            <path d="M20 14a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 1 0v1a.5.5 0 0 1-.5.5zM15.757 15.757a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 1 1 .707-.707l.707.707a.5.5 0 0 1 0 .707zM25.657 14.343a.5.5 0 0 1 0 .707l-.707.707a.5.5 0 1 1-.707-.707l.707-.707a.5.5 0 0 1 .707 0zM15.757 24.243a.5.5 0 0 1 0 .707l-.707.707a.5.5 0 0 1-.707-.707l.707-.707a.5.5 0 0 1 .707 0zM28 20a.5.5 0 0 1-.5.5h-1a.5.5 0 1 1 0-1h1a.5.5 0 0 1 .5.5zM14 20a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1 0-1h1a.5.5 0 0 1 .5.5zM25.657 25.657a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 1 1 .707-.707l.707.707a.5.5 0 0 1 0 .707zM19.5 27.5a.5.5 0 0 0 1 0v-1a.5.5 0 1 0-1 0v1z"/>
+            <path d="M24 20a4 4 0 1 1-8 0 4 4 0 0 1 8 0zm-1 0a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+          <div class="sections mobile ">
+      <ul class="sections__list">
+      <li class="sections__item">
+        <a class="sections__link " href="../ozp/index.html">ОЗП</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="../gor/index.html">ГОР</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="../ptm/index.html">ПТМ</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="../ot/index.html">ОТ</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link active" href="../vob/index.html">В. об</a>
+      </li>      
+      <li class="sections__item">
+        <a class="sections__link " href="../vej/index.html">В. еж</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="../trigr/index.html">3 гр</a>
+      </li>
+    </ul>
+  </div>
+        <nav class="nav desktop">
+  <div class="nav__wrap">
+    <a class="nav__item about " href="faq.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+        <path d="M26 19a6 6 0 1 1-12 0 6 6 0 0 1 12 0zm1 0a7 7 0 1 1-14 0 7 7 0 0 1 14 0zm-6-3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-1 1.875c.345 0 .625.28.625.625v4a.625.625 0 1 1-1.25 0v-4c0-.345.28-.625.625-.625z"></path>
+      </svg>
+      <span class="nav__item_name">О проекте</span>
+      </a>
+      <div class="nav__item theme">
+        <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+          <g class="moon">
+            <path d="M24.295 22.652c-.175-.094-.828.06-1.11.06-3.785 0-6.854-2.931-6.854-6.644 0-.403 0-.736.126-1.12a.13.13 0 0 0 .007-.049c-.007-.12-.066-.225-.166-.104a6.683 6.683 0 0 0-.345.446c-.578.834-.945 2.006-.945 3.206 0 3.073 2.54 5.564 5.672 5.564 1.651 0 3.26-.796 3.615-1.359zm.671-1.208c-.437.183-.776.28-1.782.28-3.228 0-5.844-2.568-5.844-5.735 0-.91.113-1.473.244-1.993l.002-.007.05-.194.013-.052c.04-.155.08-.31.119-.474.034-.146-.076-.285-.228-.268a2.1 2.1 0 0 0-.467.113 2.703 2.703 0 0 0-.34.15c-1.388.73-2.733 2.817-2.733 5.183C14 22.067 16.99 25 20.68 25c2.49 0 4.468-1.222 5.114-2.83l.021-.053a3.162 3.162 0 0 0 .183-.742c.02-.17-.15-.289-.312-.228a10.53 10.53 0 0 0-.547.224l-.145.061-.027.012z"></path>
+          </g>
+          <g class="sun">
+            <path d="M20 13a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 1 0v1a.5.5 0 0 1-.5.5zM15.757 14.757a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 1 1 .707-.707l.707.707a.5.5 0 0 1 0 .707zM25.657 13.343a.5.5 0 0 1 0 .707l-.707.707a.5.5 0 1 1-.707-.707l.707-.707a.5.5 0 0 1 .707 0zM15.757 23.243a.5.5 0 0 1 0 .707l-.707.707a.5.5 0 0 1-.707-.707l.707-.707a.5.5 0 0 1 .707 0zM28 19a.5.5 0 0 1-.5.5h-1a.5.5 0 1 1 0-1h1a.5.5 0 0 1 .5.5zM14 19a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1 0-1h1a.5.5 0 0 1 .5.5zM25.657 24.657a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 1 1 .707-.707l.707.707a.5.5 0 0 1 0 .707zM19.5 26.5a.5.5 0 0 0 1 0v-1a.5.5 0 1 0-1 0v1z"></path>
+            <path d="M24 19a4 4 0 1 1-8 0 4 4 0 0 1 8 0zm-1 0a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+          </g>
+      </svg>
+      <span class="nav__item_name">Тема</span>
+    </div>
+    <a class="nav__item " href="../ozp/index.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+        <path d="M27.618 18.107l-7.31-5.743L13 18.107l.618.786 1.19-.936V25.5h11v-7.543l1.192.936.618-.786zm-2.81-.935l-4.5-3.536-4.5 3.536V24.5h9v-7.328z"></path>
+      </svg>
+      <span class="nav__item_name">ОЗП</span>
+    </a>
+    <a class="nav__item " href="../gor/index.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+        <path d="M25.849 15.448A.786.786 0 0 0 26 15c0-1.105-2.686-2-6-2s-6 .895-6 2c0 .16.056.315.162.464L18 21.642v4.727l4-2.667v-2.06l3.852-6.194h-.003zm-1.854 1.044c-1.061.316-2.46.508-3.995.508-1.534 0-2.934-.192-3.994-.508L19 21.358V24.5l2-1.333v-1.809l2.995-4.866zM24.844 15c0 .552-2.16 1-4.825 1-2.664 0-4.824-.448-4.824-1s2.16-1 4.825-1c2.664 0 4.824.448 4.824 1z"></path>
+      </svg>
+      <span class="nav__item_name">ГОР</span>
+    </a>
+    <a class="nav__item " href="../ptm/index.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+        <path d="M19.5 19h-3v-1h3v1zM23.5 19h-3v-1h3v1z"></path>
+        <path d="M17 15h6l3-3v11a3 3 0 0 1-3 3h-6a3 3 0 0 1-3-3V12l3 3zm8-.586V23a2 2 0 0 1-2 2h-6a2 2 0 0 1-2-2v-8.586L16.586 16h6.828L25 14.414z"></path>
+      </svg>
+      <span class="nav__item_name">ПТМ</span>
+      <span class="nav__item_badge" data-badge="strips"></span>
+    </a>
+    <a class="nav__item " href="../ot/index.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+        <path d="M25 18a5 5 0 1 1-10 0 5 5 0 0 1 10 0zm-1.31 4.731a6 6 0 1 1 .734-.679l2.446 2.608-.73.684-2.45-2.613z"></path>
+      </svg>
+      <span class="nav__item_name">ОТ</span>
+    </a>
+    <a class="nav__item active" href="../vob/index.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+        <path d="M19.5 18.5V24h1v-5.5H26v-1h-5.5V12h-1v5.5H14v1h5.5z"></path>
+      </svg>
+      <span class="nav__item_name">В. об</span>
+    </a>
+    <a class="nav__item " href="../vej/index.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+        <path d="M19.5 18.5V24h1v-5.5H26v-1h-5.5V12h-1v5.5H14v1h5.5z"></path>
+      </svg>
+      <span class="nav__item_name">В. еж</span>
+    </a>
+    <a class="nav__item " href="../trigr/index.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+        <path d="M25 18a5 5 0 1 1-10 0 5 5 0 0 1 10 0zm-1.31 4.731a6 6 0 1 1 .734-.679l2.446 2.608-.73.684-2.45-2.613z"></path>
+      </svg>
+      <span class="nav__item_name">3 гр</span>
+    </a>
+  </div>
+</nav>  </div>
+</header>  
+<div class="columns">
+  <main class="columns__main ">
+    
+<article class="quote" data-quote="???">
+  <div class="quote__frame">
+    <div class="quote__body">
+     <p>Начни подготовку к экзамену по высоте</p>
+    </div>
+  </div>
+  <hr>
+      <ul class="sections__list">
+      <li class="sections__item">
+        <a class="sections__link " href="1.html">Вперед</a>
+      </li>
+    </ul>
+</article>   
+  </main>
+</div>
+
+  <footer class="footer">
+    <nav class="footer__nav">
+      <a href="../faq.html" class="footer__nav_link ">
+        О сайте
+      </a>
+    </nav>
+    <div class="footer__legal">
+      <p class="footer__legal_para">
+        Идея проекта &copy; Моя. 2019
+      </p>
+      <p class="footer__legal_para">
+        Техподдержка: <a href="mailto:kipecc@gmail.com">support@support.ru</a>
+      </p>
+    </div>
+    <div class="footer__badges">
+</div></footer>
+
+<div class="nav mobile">
+  <div class="nav__wrap">
+    <a class="nav__item about " href="../faq.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+        <path d="M26 19a6 6 0 1 1-12 0 6 6 0 0 1 12 0zm1 0a7 7 0 1 1-14 0 7 7 0 0 1 14 0zm-6-3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-1 1.875c.345 0 .625.28.625.625v4a.625.625 0 1 1-1.25 0v-4c0-.345.28-.625.625-.625z"></path>
+      </svg>
+      <span class="nav__item_name">О проекте</span>
+      </a>
+      <div class="nav__item theme">
+        <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+          <g class="moon">
+            <path d="M24.295 22.652c-.175-.094-.828.06-1.11.06-3.785 0-6.854-2.931-6.854-6.644 0-.403 0-.736.126-1.12a.13.13 0 0 0 .007-.049c-.007-.12-.066-.225-.166-.104a6.683 6.683 0 0 0-.345.446c-.578.834-.945 2.006-.945 3.206 0 3.073 2.54 5.564 5.672 5.564 1.651 0 3.26-.796 3.615-1.359zm.671-1.208c-.437.183-.776.28-1.782.28-3.228 0-5.844-2.568-5.844-5.735 0-.91.113-1.473.244-1.993l.002-.007.05-.194.013-.052c.04-.155.08-.31.119-.474.034-.146-.076-.285-.228-.268a2.1 2.1 0 0 0-.467.113 2.703 2.703 0 0 0-.34.15c-1.388.73-2.733 2.817-2.733 5.183C14 22.067 16.99 25 20.68 25c2.49 0 4.468-1.222 5.114-2.83l.021-.053a3.162 3.162 0 0 0 .183-.742c.02-.17-.15-.289-.312-.228a10.53 10.53 0 0 0-.547.224l-.145.061-.027.012z"></path>
+          </g>
+          <g class="sun">
+            <path d="M20 13a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 1 0v1a.5.5 0 0 1-.5.5zM15.757 14.757a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 1 1 .707-.707l.707.707a.5.5 0 0 1 0 .707zM25.657 13.343a.5.5 0 0 1 0 .707l-.707.707a.5.5 0 1 1-.707-.707l.707-.707a.5.5 0 0 1 .707 0zM15.757 23.243a.5.5 0 0 1 0 .707l-.707.707a.5.5 0 0 1-.707-.707l.707-.707a.5.5 0 0 1 .707 0zM28 19a.5.5 0 0 1-.5.5h-1a.5.5 0 1 1 0-1h1a.5.5 0 0 1 .5.5zM14 19a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1 0-1h1a.5.5 0 0 1 .5.5zM25.657 24.657a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 1 1 .707-.707l.707.707a.5.5 0 0 1 0 .707zM19.5 26.5a.5.5 0 0 0 1 0v-1a.5.5 0 1 0-1 0v1z"></path>
+            <path d="M24 19a4 4 0 1 1-8 0 4 4 0 0 1 8 0zm-1 0a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+          </g>
+      </svg>
+      <span class="nav__item_name">Тема</span>
+    </div>
+  </div>
+  </div>
+</body>
+</html>

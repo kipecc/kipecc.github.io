@@ -1,0 +1,426 @@
+  <!doctype html>
+<html theme="light" lang="ru" data-controller="index" aside="true">
+<head>
+  <meta charset="utf-8">
+  <title>Экзаменатор</title>
+  
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#f5f4f2">
+  <meta name="viewport" id="view" content="width=device-width, initial-scale=1.0, minimum-scale=1.0,
+  maximum-scale=1.0" />
+  <link rel="preload" as="style" href="../css/bor.css">
+  <link rel="preload" as="script" href="../css/bor.js">
+  <link rel="stylesheet" href="../css/bor.css">
+    <script src="../css/bor.js" async data-turbolinks-eval="false"></script>
+    <script>
+    var nextTheme = {
+      light: 'dark',
+      dark: 'light'
+    };
+    var colors = {
+      light:'#f5f4f2',
+      dark: '#252323'
+    };
+    var tokens = ['aside', 'theme'];
+    var meta = document.querySelector('[name="theme-color"]');
+    for (var i = 0; i < tokens.length; i++) {
+      var name = tokens[i];
+      var value = localStorage.getItem(name);
+      if (value != null) {
+        document.documentElement.setAttribute(name, value);
+        name === 'theme' && meta.setAttribute('content', colors[value]);
+      }
+    }
+  </script>
+
+  </head>
+<body data-turbolinks-suppress-warning>
+  <header class="header">
+  <div class="header__projects"></div>
+  <div class="header__wrap">
+    <div class="header__title">
+      <a class="header__title_item info " href="../faq.html" aria-label="О проекте">
+        <svg class="header__title_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+         <path d="M20 26a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0 1a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm1-10a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm0 7v-5h-2v5h2z"/>
+        </svg>
+      </a>
+      <h1 class="header__title_wrap">
+        <span class="header__title_name">
+          Question.net&nbsp;— Экзаменатор
+        </span>
+      </h1>
+      <div class="header__title_item theme">
+        <svg class="header__title_icon" xmlns="http://www.w3.org/200но0/svg" viewBox="0 0 40 40" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+          <g class="moon">
+            <path d="M25.295 23.652c-.175-.094-.828.06-1.11.06-3.785 0-6.854-2.931-6.854-6.644 0-.402 0-.736.126-1.12a.13.13 0 0 0 .007-.049c-.007-.12-.066-.225-.166-.104a6.683 6.683 0 0 0-.345.446c-.578.834-.945 2.006-.945 3.206 0 3.073 2.54 5.564 5.672 5.564 1.651 0 3.26-.796 3.615-1.359zm.671-1.208c-.437.183-.776.28-1.782.28-3.228 0-5.844-2.568-5.844-5.735 0-.91.113-1.473.244-1.993l.002-.007.05-.194.013-.052c.04-.155.08-.31.119-.474.034-.146-.076-.285-.228-.268a2.1 2.1 0 0 0-.467.113 2.703 2.703 0 0 0-.34.15c-1.388.73-2.733 2.817-2.733 5.183C15 23.067 17.99 26 21.68 26c2.49 0 4.468-1.222 5.114-2.83l.021-.053a3.162 3.162 0 0 0 .183-.742c.02-.17-.15-.289-.312-.228a10.53 10.53 0 0 0-.547.224l-.145.061-.027.012z"/>
+          </g>
+          <g class="sun">
+            <path d="M20 14a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 1 0v1a.5.5 0 0 1-.5.5zM15.757 15.757a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 1 1 .707-.707l.707.707a.5.5 0 0 1 0 .707zM25.657 14.343a.5.5 0 0 1 0 .707l-.707.707a.5.5 0 1 1-.707-.707l.707-.707a.5.5 0 0 1 .707 0zM15.757 24.243a.5.5 0 0 1 0 .707l-.707.707a.5.5 0 0 1-.707-.707l.707-.707a.5.5 0 0 1 .707 0zM28 20a.5.5 0 0 1-.5.5h-1a.5.5 0 1 1 0-1h1a.5.5 0 0 1 .5.5zM14 20a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1 0-1h1a.5.5 0 0 1 .5.5zM25.657 25.657a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 1 1 .707-.707l.707.707a.5.5 0 0 1 0 .707zM19.5 27.5a.5.5 0 0 0 1 0v-1a.5.5 0 1 0-1 0v1z"/>
+            <path d="M24 20a4 4 0 1 1-8 0 4 4 0 0 1 8 0zm-1 0a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+          <div class="sections mobile ">
+      <ul class="sections__list">
+      <li class="sections__item">
+        <a class="sections__link " href="../ozp/index.html">ОЗП</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="../gor/index.html">ГОР</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="../ptm/index.html">ПТМ</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link active" href="index.html">ОТ</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="../vob/index.html">В. об</a>
+      </li>      
+      <li class="sections__item">
+        <a class="sections__link " href="../vej/index.html">В. еж</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="../trigr/index.html">3 гр</a>
+      </li>
+    </ul>
+  </div>
+        <nav class="nav desktop">
+  <div class="nav__wrap">
+    <a class="nav__item about " href="../faq.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+        <path d="M26 19a6 6 0 1 1-12 0 6 6 0 0 1 12 0zm1 0a7 7 0 1 1-14 0 7 7 0 0 1 14 0zm-6-3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-1 1.875c.345 0 .625.28.625.625v4a.625.625 0 1 1-1.25 0v-4c0-.345.28-.625.625-.625z"></path>
+      </svg>
+      <span class="nav__item_name">О проекте</span>
+      </a>
+      <div class="nav__item theme">
+        <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+          <g class="moon">
+            <path d="M24.295 22.652c-.175-.094-.828.06-1.11.06-3.785 0-6.854-2.931-6.854-6.644 0-.403 0-.736.126-1.12a.13.13 0 0 0 .007-.049c-.007-.12-.066-.225-.166-.104a6.683 6.683 0 0 0-.345.446c-.578.834-.945 2.006-.945 3.206 0 3.073 2.54 5.564 5.672 5.564 1.651 0 3.26-.796 3.615-1.359zm.671-1.208c-.437.183-.776.28-1.782.28-3.228 0-5.844-2.568-5.844-5.735 0-.91.113-1.473.244-1.993l.002-.007.05-.194.013-.052c.04-.155.08-.31.119-.474.034-.146-.076-.285-.228-.268a2.1 2.1 0 0 0-.467.113 2.703 2.703 0 0 0-.34.15c-1.388.73-2.733 2.817-2.733 5.183C14 22.067 16.99 25 20.68 25c2.49 0 4.468-1.222 5.114-2.83l.021-.053a3.162 3.162 0 0 0 .183-.742c.02-.17-.15-.289-.312-.228a10.53 10.53 0 0 0-.547.224l-.145.061-.027.012z"></path>
+          </g>
+          <g class="sun">
+            <path d="M20 13a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 1 0v1a.5.5 0 0 1-.5.5zM15.757 14.757a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 1 1 .707-.707l.707.707a.5.5 0 0 1 0 .707zM25.657 13.343a.5.5 0 0 1 0 .707l-.707.707a.5.5 0 1 1-.707-.707l.707-.707a.5.5 0 0 1 .707 0zM15.757 23.243a.5.5 0 0 1 0 .707l-.707.707a.5.5 0 0 1-.707-.707l.707-.707a.5.5 0 0 1 .707 0zM28 19a.5.5 0 0 1-.5.5h-1a.5.5 0 1 1 0-1h1a.5.5 0 0 1 .5.5zM14 19a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1 0-1h1a.5.5 0 0 1 .5.5zM25.657 24.657a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 1 1 .707-.707l.707.707a.5.5 0 0 1 0 .707zM19.5 26.5a.5.5 0 0 0 1 0v-1a.5.5 0 1 0-1 0v1z"></path>
+            <path d="M24 19a4 4 0 1 1-8 0 4 4 0 0 1 8 0zm-1 0a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+          </g>
+      </svg>
+      <span class="nav__item_name">Тема</span>
+    </div>
+    <a class="nav__item " href="../ozp/index.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+        
+      </svg>
+      <span class="nav__item_name">ОЗП</span>
+    </a>
+    <a class="nav__item " href="../gor/index.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+        
+      </svg>
+      <span class="nav__item_name">ГОР</span>
+    </a>
+    <a class="nav__item " href="../ptm/index.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+        
+      </svg>
+      <span class="nav__item_name">ПТМ</span>
+      <span class="nav__item_badge" data-badge="strips"></span>
+    </a>
+    <a class="nav__item active" href="../ot/index.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+        
+      </svg>
+      <span class="nav__item_name">ОТ</span>
+    </a>
+    <a class="nav__item " href="../vob/index.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+        
+      </svg>
+      <span class="nav__item_name">В. об</span>
+    </a>
+    <a class="nav__item " href="../vej/index.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+        
+      </svg>
+      <span class="nav__item_name">В. еж</span>
+    </a>
+    <a class="nav__item " href="../trigr/index.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+
+      </svg>
+      <span class="nav__item_name">III группа</span>
+    </a>
+  </div>
+</nav>  </div>
+</header>  <div class="columns">
+    <main class="columns__main ">
+      <div class="sections desktop top">
+      <ul class="sections__list">
+      <li class="sections__item">
+        <a class="sections__link " href="18.html">18 Билет</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link active" href="19.html">19 Билет</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="20.html">20 Билет</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="1.html">1 Билет</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="2.html">2 Билет</a>
+      </li>
+    </ul>
+  </div>
+
+<section class="quotes">
+
+<article class="quote">
+  <div class="quote__frame">
+    <header class="quote__header">
+              <a class="quote__header_permalink">Вопрос 1. Что необходимо сделать при возникновении непосредственной угрозы жизни или здоровью?</a>
+            <div class="quote__header_date">
+        Ответ:
+      </div>
+    </header>
+    <div class="quote__body">
+<p>При возникновении непосредственной угрозы жизни или здоровью работника немедленно покинуть опасную зону или принять меры для своей защиты.</p>
+    </div>
+  </div>
+</article>                                        
+ 
+<article class="quote">
+  <div class="quote__frame">
+    <header class="quote__header">
+              <a class="quote__header_permalink">Вопрос 2. Что должен знать и соблюдать слесарь по КИПиА?</a>
+            <div class="quote__header_date">
+        Ответ:
+      </div>
+    </header>
+    <div class="quote__body">
+<p>Слесарь КИПиА обязан: 
+<br>- соблюдать правила внутреннего распорядка, режим труда и отдыха, установленный график рабочего времени (сменности), утвержденный в установленном порядке.
+<br>- выполнять только ту работу, которая указана в задании, выданном непосредственным руководителем. При изменении характера работы слесарь КИПиА должен требовать от руководителя дополнительного инструктажа по безопасному выполнению работ.
+<br>Правила личной гигиены, которые должен знать и соблюдать работник при выполнении работы:
+<br>- соблюдать чистоту и порядок на территории объекта, на рабочем месте;
+<br>- знать и соблюдать требования личной гигиены: перед приемом пищи и после окончания работы вымыть руки теплой водой с мылом;
+<br>- принимать пищу, курить, отдыхать только в специально отведенных для этого помещениях и местах;
+<br>- пить воду только из специально предназначенных для этого установок.
+<br>Слесарь КИПиА должен знать и соблюдать:
+<br>- данную инструкцию по охране труда и инструкции по охране труда при всех видах работ, которые предусмотрены обязанностями;
+<br>- правила пожарной безопасности в объеме рабочей инструкции;
+<br>- правила электробезопасности в объеме рабочей инструкции;
+<br>- правила личной гигиены при выполнении работы;
+<br>- перечень спецодежды, спецобуви и других СИЗ подлежащих выдаче,
+<br>- порядок выдачи, пользования и ухода за СИЗ;
+<br>- порядок уведомления администрации о случаях травмирования работника, о пожаре, об авариях и аварийных ситуациях, о неисправности оборудования, инструмента, приспособлений;
+<br>- регламент оповещения оперативного персонала подразделений, главных специалистов управления при возникновении аварийных ситуаций, пожаров, несчастных случаев на производстве;
+<br>- местонахождение медицинской аптечки;
+<br>- телефоны вызова пожарных служб, скорой помощи.</p>
+    </div>
+  </div>
+</article>                                        
+    
+<article class="quote">
+  <div class="quote__frame">
+    <header class="quote__header">
+              <a class="quote__header_permalink">Вопрос 3. Требования охраны труда к средствам защиты от падения с высоты.</a>
+            <div class="quote__header_date">
+        Ответ:
+      </div>
+    </header>
+    <div class="quote__body">
+<p>Писать много, читайте инструкцию. Кто составит краткий ответ на данный вопрос и сможет поделиться со всеми, тот молодец.</p>
+    </div>
+  </div>
+</article>                                        
+    
+<article class="quote">
+  <div class="quote__frame">
+    <header class="quote__header">
+              <a class="quote__header_permalink">Вопрос 4. Требования охраны труда в аварийных ситуациях при работе с легко воспламеняющимися и горючими жидкостями.</a>
+            <div class="quote__header_date">
+        Ответ:
+      </div>
+    </header>
+    <div class="quote__body">
+<p>1 В случае возникновения аварийной ситуации работник обязан немедленно прекратить работу с ЛВЖ и ГЖ немедленно, ринять меры по предотвращению нежелательных последствий, связанных с опасностью для жизнии здоровья людей , поставить в известность непосредственного руководителя. К работе приступить после устранения опасностей с разрешения руководителя.
+<br>2 При возникновении пожара работник должен сообщить о нем руководству, позвонить в пожарную часть по телефону 01 и  приступить к локализации пожара первичными средствами пожаротушения. В случае пожара в помещениях необходимо отключить общий рубильник электросети, следует сообщить непосредственному руководителю, начальнику смены ЦИТС по телефонам : 52-500, 52-526 в ПЧ-1 по тел: 52-553, 01 о возгорании, назвать место возникновения пожара, включить ручной пожарный извещатель. 
+<br>3 Каждый рабочий должен знать и уметь оказывать первую помощьпри несчастном случае.
+<br>4 При получении травмы пострадавший или очевидец должен сообщить об этом непосредственному руководителю, сохранить до расследования обстановку на рабочем месте и состояние оборудования такими, какими они были в момент происшествия, если это не угрожает жизни и здоровью окружающих работников, не приведет к аварии и не нарушит производственного процесса.
+<br>5 Во всех аварийных ситуациях необходимо сообщить о случившемся непосредственному руководителю работ и начальнику цеха.</p>
+    </div>
+  </div>
+</article>                                        
+    
+<article class="quote">
+  <div class="quote__frame">
+    <header class="quote__header">
+              <a class="quote__header_permalink">Вопрос 5. Перечень спецодежды, спецобуви и дополнительных СИЗ для слесарей КИПиА.</a>
+            <div class="quote__header_date">
+        Ответ:
+          </div>
+    </header>
+    <div class="quote__body">
+<p>Слесарь КИПиА должен быть обеспечен полагающейся в соответствии с действующим законодательством, разработанным в соответствии с «Типовыми нормами бесплатной выдачи спецодежды, спецобуви и других средств индивидуальной защиты работникам нефтяной промышленности, занятым на работах с вредными и (или) опасными условиями труда, а также на работах, выполняемых в особых температурных условиях или связанных с загрязнением», спецодеждой, спецобувью и средствами индивидуальной защиты.
+<br>В зависимости от условий порученной для выполнения работы слесарь КИПиА обязан использовать дополнительные средства
+индивидуальной защиты, в том числе:
+<br>- при выполнении работ на высоте - каску защитную и страховочные системы;
+<br>- при обслуживании приборов КИПиА в насосных блоках КНС, ДНС, машинных залах котельных, ГПЭС для защиты органов слуха - наушники;
+<br>- при газоопасных работах - противогаз;
+<br>- для защиты глаз - очки, защитный щиток;
+<br>- при работе с мегаомметром:
+<br>- изолирующими держателями, специальными зажимами типа «крокодил», диэлектрическими перчатками;
+<br>- в летнее время, при работе на открытых площадках для защиты от гнуса - репеллентом.</p>
+    </div>
+  </div>
+</article>                    
+    
+<article class="quote">
+  <div class="quote__frame">
+    <header class="quote__header">
+              <a class="quote__header_permalink">Вопрос 6. Что необходимо при работе на кромке пожара?</a>
+            <div class="quote__header_date">
+        Ответ:
+      </div>
+    </header>
+    <div class="quote__body">
+<p>При работе на кромке пожара необходимо:
+<br>1) сохранять дистанцию между работниками не более 3 м;
+<br>2) не терять из вида работающих рядом работников, постоянно контролировать визуально их передвижение;
+<br>3) в случае огибания работника действующей кромкой пожара отойти назад и немедленно сообщить руководителю тушением, старшему лесопожарной группы о сложившейся опасной ситуации, предупредив об опасности работающих рядом работников.</p>
+    </div>
+  </div>
+</article>                                        
+
+<article class="quote">
+  <div class="quote__frame">
+    <header class="quote__header">
+              <a class="quote__header_permalink">Вопрос 7. В каких случаях пострадавшему проводятся реанимационные мероприятия и как они выполняются (с отработкой практических навыков на тренажере)?</a>
+            <div class="quote__header_date">
+        Ответ:
+      </div>
+    </header>
+    <div class="quote__body">
+<p>При отсутствии у пострадавшего признаков жизни (отсутствует дыхание, сознание пульс, покров синюшный, а зрачки широкие (0,5 см в диаметре)) нельзя считать его мёртвым, так как смерть часто бывает лишь кажущейся или клинической. В таком состоянии пострадавший, если ему не будет оказана немедленная первая помощь (реанимация) в виде искусственного дыхания и наружного (непрямого) массажа сердца, действительно умрёт. Начинать реанимационные мероприятия следует немедленно только после освобождения пострадавшего от воздействия электрического тока, и производить их непрерывно до достижения положительного результата или появления признаков биологической смерти (высыхания роговицы глаза, появления трупных пятен или трупного окоченения). Вопрос о целесообразности или бесцельности дальнейшего проведения реанимационных мероприятий решается только врачом.</p>
+    </div>
+  </div>
+</article>                                        
+    
+<article class="quote">
+  <div class="quote__frame">
+    <header class="quote__header">
+              <a class="quote__header_permalink">Вопрос 8. Какому испытанию и контролю подвергается баллон на заводе-изготовителе?</a>
+            <div class="quote__header_date">
+        Ответ:
+      </div>
+    </header>
+    <div class="quote__body">
+<p>На заводе-изготовителе баллон подвергается визуальному, измери­тельному контролю, испытанию на герметичность и гидравлическому испыта­нию пробным давлением 22,5 МПа.</p>
+    </div>
+  </div>
+</article>                                        
+
+<article class="quote">
+  <div class="quote__frame">
+    <header class="quote__header">
+              <a class="quote__header_permalink">Вопрос 9. Какие газоопасные работы выполняются без оформления наряда-допуска?</a>
+            <div class="quote__header_date">
+        Ответ:
+      </div>
+    </header>
+    <div class="quote__body">
+<p>К газоопасным работам, выполняемым без оформления наряда-допуска относятся периодически повторяющиеся газоопасные работы, являющиеся неотъемлемой частью технологического процесса (включая отбор проб, дренирование аппаратов), характеризующиеся аналогичными условиями их проведения, постоянством места и характера работ, определенным составом исполнителей. Указанные работы производятся без оформления наряда-допуска по утвержденным производственным инструкциям, включаются в перечень газоопасных мест и работ и регистрируются в специальном журнале с указанием времени начала и окончания работ.</p>
+    </div>
+  </div>
+</article>
+
+<article class="quote">
+  <div class="quote__frame">
+    <header class="quote__header">
+              <a class="quote__header_permalink">Вопрос 10. Проверка средств сигнализации, противоаварийных защит и блокировок установки для получения битума. Периодичность, типовые операции, регламентирующие документы, оформление документации.</a>
+            <div class="quote__header_date">
+        Ответ:
+      </div>
+    </header>
+    <div class="quote__body">
+
+    </div>
+  </div>
+</article>
+</section>
+
+<div class="sections desktop bottom">
+      <ul class="sections__list">
+      <li class="sections__item">
+        <a class="sections__link " href="18.html">18 Билет</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link active" href="19.html">19 Билет</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="20.html">20 Билет</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="1.html">1 Билет</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="2.html">2 Билет</a>
+      </li>
+    </ul>
+  </div>
+    </main>
+      </div>
+  <footer class="footer">
+    <div class="footer__legal">
+      <p class="footer__legal_para">
+        Идея проекта &copy; vselyudiprodakshn. 2015
+      </p>
+    </div>
+    <div class="footer__badges">
+</div></footer>
+
+  <div class="nav mobile">
+  <div class="nav__wrap">
+    <a class="nav__item about " href="../faq.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+        <path d="M26 19a6 6 0 1 1-12 0 6 6 0 0 1 12 0zm1 0a7 7 0 1 1-14 0 7 7 0 0 1 14 0zm-6-3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-1 1.875c.345 0 .625.28.625.625v4a.625.625 0 1 1-1.25 0v-4c0-.345.28-.625.625-.625z"></path>
+      </svg>
+      <span class="nav__item_name">О проекте</span>
+      </a>
+      <div class="nav__item theme">
+        <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+          <g class="moon">
+            <path d="M24.295 22.652c-.175-.094-.828.06-1.11.06-3.785 0-6.854-2.931-6.854-6.644 0-.403 0-.736.126-1.12a.13.13 0 0 0 .007-.049c-.007-.12-.066-.225-.166-.104a6.683 6.683 0 0 0-.345.446c-.578.834-.945 2.006-.945 3.206 0 3.073 2.54 5.564 5.672 5.564 1.651 0 3.26-.796 3.615-1.359zm.671-1.208c-.437.183-.776.28-1.782.28-3.228 0-5.844-2.568-5.844-5.735 0-.91.113-1.473.244-1.993l.002-.007.05-.194.013-.052c.04-.155.08-.31.119-.474.034-.146-.076-.285-.228-.268a2.1 2.1 0 0 0-.467.113 2.703 2.703 0 0 0-.34.15c-1.388.73-2.733 2.817-2.733 5.183C14 22.067 16.99 25 20.68 25c2.49 0 4.468-1.222 5.114-2.83l.021-.053a3.162 3.162 0 0 0 .183-.742c.02-.17-.15-.289-.312-.228a10.53 10.53 0 0 0-.547.224l-.145.061-.027.012z"></path>
+          </g>
+          <g class="sun">
+            <path d="M20 13a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 1 0v1a.5.5 0 0 1-.5.5zM15.757 14.757a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 1 1 .707-.707l.707.707a.5.5 0 0 1 0 .707zM25.657 13.343a.5.5 0 0 1 0 .707l-.707.707a.5.5 0 1 1-.707-.707l.707-.707a.5.5 0 0 1 .707 0zM15.757 23.243a.5.5 0 0 1 0 .707l-.707.707a.5.5 0 0 1-.707-.707l.707-.707a.5.5 0 0 1 .707 0zM28 19a.5.5 0 0 1-.5.5h-1a.5.5 0 1 1 0-1h1a.5.5 0 0 1 .5.5zM14 19a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1 0-1h1a.5.5 0 0 1 .5.5zM25.657 24.657a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 1 1 .707-.707l.707.707a.5.5 0 0 1 0 .707zM19.5 26.5a.5.5 0 0 0 1 0v-1a.5.5 0 1 0-1 0v1z"></path>
+            <path d="M24 19a4 4 0 1 1-8 0 4 4 0 0 1 8 0zm-1 0a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+          </g>
+      </svg>
+      <span class="nav__item_name">Тема</span>
+    </div>
+    
+      <ul class="sections__list">
+      <li class="sections__item">
+        <a class="sections__link " href="18.html">18 Билет</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link active" href="19.html">19 Билет</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="20.html">20 Билет</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="1.html">1 Билет</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="2.html">2 Билет</a>
+      </li>
+    </ul>
+ 
+  </div>
+  </div>
+</body>
+</html>

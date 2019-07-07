@@ -1,0 +1,431 @@
+  <!doctype html>
+<html theme="light" lang="ru" data-controller="index" aside="true">
+<head>
+  <meta charset="utf-8">
+  <title>Экзаменатор</title>
+  
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#f5f4f2">
+  <meta name="viewport" id="view" content="width=device-width, initial-scale=1.0, minimum-scale=1.0,
+  maximum-scale=1.0" />
+  <link rel="preload" as="style" href="../css/bor.css">
+  <link rel="preload" as="script" href="../css/bor.js">
+  <link rel="stylesheet" href="../css/bor.css">
+    <script src="../css/bor.js" async data-turbolinks-eval="false"></script>
+    <script>
+    var nextTheme = {
+      light: 'dark',
+      dark: 'light'
+    };
+    var colors = {
+      light:'#f5f4f2',
+      dark: '#252323'
+    };
+    var tokens = ['aside', 'theme'];
+    var meta = document.querySelector('[name="theme-color"]');
+    for (var i = 0; i < tokens.length; i++) {
+      var name = tokens[i];
+      var value = localStorage.getItem(name);
+      if (value != null) {
+        document.documentElement.setAttribute(name, value);
+        name === 'theme' && meta.setAttribute('content', colors[value]);
+      }
+    }
+  </script>
+
+  </head>
+<body data-turbolinks-suppress-warning>
+  <header class="header">
+  <div class="header__projects"></div>
+  <div class="header__wrap">
+    <div class="header__title">
+      <a class="header__title_item info " href="../faq.html" aria-label="О проекте">
+        <svg class="header__title_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+         <path d="M20 26a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0 1a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm1-10a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm0 7v-5h-2v5h2z"/>
+        </svg>
+      </a>
+      <h1 class="header__title_wrap">
+        <span class="header__title_name">
+          Question.net&nbsp;— Экзаменатор
+        </span>
+      </h1>
+      <div class="header__title_item theme">
+        <svg class="header__title_icon" xmlns="http://www.w3.org/200но0/svg" viewBox="0 0 40 40" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+          <g class="moon">
+            <path d="M25.295 23.652c-.175-.094-.828.06-1.11.06-3.785 0-6.854-2.931-6.854-6.644 0-.402 0-.736.126-1.12a.13.13 0 0 0 .007-.049c-.007-.12-.066-.225-.166-.104a6.683 6.683 0 0 0-.345.446c-.578.834-.945 2.006-.945 3.206 0 3.073 2.54 5.564 5.672 5.564 1.651 0 3.26-.796 3.615-1.359zm.671-1.208c-.437.183-.776.28-1.782.28-3.228 0-5.844-2.568-5.844-5.735 0-.91.113-1.473.244-1.993l.002-.007.05-.194.013-.052c.04-.155.08-.31.119-.474.034-.146-.076-.285-.228-.268a2.1 2.1 0 0 0-.467.113 2.703 2.703 0 0 0-.34.15c-1.388.73-2.733 2.817-2.733 5.183C15 23.067 17.99 26 21.68 26c2.49 0 4.468-1.222 5.114-2.83l.021-.053a3.162 3.162 0 0 0 .183-.742c.02-.17-.15-.289-.312-.228a10.53 10.53 0 0 0-.547.224l-.145.061-.027.012z"/>
+          </g>
+          <g class="sun">
+            <path d="M20 14a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 1 0v1a.5.5 0 0 1-.5.5zM15.757 15.757a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 1 1 .707-.707l.707.707a.5.5 0 0 1 0 .707zM25.657 14.343a.5.5 0 0 1 0 .707l-.707.707a.5.5 0 1 1-.707-.707l.707-.707a.5.5 0 0 1 .707 0zM15.757 24.243a.5.5 0 0 1 0 .707l-.707.707a.5.5 0 0 1-.707-.707l.707-.707a.5.5 0 0 1 .707 0zM28 20a.5.5 0 0 1-.5.5h-1a.5.5 0 1 1 0-1h1a.5.5 0 0 1 .5.5zM14 20a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1 0-1h1a.5.5 0 0 1 .5.5zM25.657 25.657a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 1 1 .707-.707l.707.707a.5.5 0 0 1 0 .707zM19.5 27.5a.5.5 0 0 0 1 0v-1a.5.5 0 1 0-1 0v1z"/>
+            <path d="M24 20a4 4 0 1 1-8 0 4 4 0 0 1 8 0zm-1 0a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+          <div class="sections mobile ">
+      <ul class="sections__list">
+      <li class="sections__item">
+        <a class="sections__link " href="../ozp/index.html">ОЗП</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="../gor/index.html">ГОР</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="../ptm/index.html">ПТМ</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link active" href="index.html">ОТ</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="../vob/index.html">В. об</a>
+      </li>      
+      <li class="sections__item">
+        <a class="sections__link " href="../vej/index.html">В. еж</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="../trigr/index.html">3 гр</a>
+      </li>
+    </ul>
+  </div>
+        <nav class="nav desktop">
+  <div class="nav__wrap">
+    <a class="nav__item about " href="../faq.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+        <path d="M26 19a6 6 0 1 1-12 0 6 6 0 0 1 12 0zm1 0a7 7 0 1 1-14 0 7 7 0 0 1 14 0zm-6-3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-1 1.875c.345 0 .625.28.625.625v4a.625.625 0 1 1-1.25 0v-4c0-.345.28-.625.625-.625z"></path>
+      </svg>
+      <span class="nav__item_name">О проекте</span>
+      </a>
+      <div class="nav__item theme">
+        <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+          <g class="moon">
+            <path d="M24.295 22.652c-.175-.094-.828.06-1.11.06-3.785 0-6.854-2.931-6.854-6.644 0-.403 0-.736.126-1.12a.13.13 0 0 0 .007-.049c-.007-.12-.066-.225-.166-.104a6.683 6.683 0 0 0-.345.446c-.578.834-.945 2.006-.945 3.206 0 3.073 2.54 5.564 5.672 5.564 1.651 0 3.26-.796 3.615-1.359zm.671-1.208c-.437.183-.776.28-1.782.28-3.228 0-5.844-2.568-5.844-5.735 0-.91.113-1.473.244-1.993l.002-.007.05-.194.013-.052c.04-.155.08-.31.119-.474.034-.146-.076-.285-.228-.268a2.1 2.1 0 0 0-.467.113 2.703 2.703 0 0 0-.34.15c-1.388.73-2.733 2.817-2.733 5.183C14 22.067 16.99 25 20.68 25c2.49 0 4.468-1.222 5.114-2.83l.021-.053a3.162 3.162 0 0 0 .183-.742c.02-.17-.15-.289-.312-.228a10.53 10.53 0 0 0-.547.224l-.145.061-.027.012z"></path>
+          </g>
+          <g class="sun">
+            <path d="M20 13a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 1 0v1a.5.5 0 0 1-.5.5zM15.757 14.757a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 1 1 .707-.707l.707.707a.5.5 0 0 1 0 .707zM25.657 13.343a.5.5 0 0 1 0 .707l-.707.707a.5.5 0 1 1-.707-.707l.707-.707a.5.5 0 0 1 .707 0zM15.757 23.243a.5.5 0 0 1 0 .707l-.707.707a.5.5 0 0 1-.707-.707l.707-.707a.5.5 0 0 1 .707 0zM28 19a.5.5 0 0 1-.5.5h-1a.5.5 0 1 1 0-1h1a.5.5 0 0 1 .5.5zM14 19a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1 0-1h1a.5.5 0 0 1 .5.5zM25.657 24.657a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 1 1 .707-.707l.707.707a.5.5 0 0 1 0 .707zM19.5 26.5a.5.5 0 0 0 1 0v-1a.5.5 0 1 0-1 0v1z"></path>
+            <path d="M24 19a4 4 0 1 1-8 0 4 4 0 0 1 8 0zm-1 0a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+          </g>
+      </svg>
+      <span class="nav__item_name">Тема</span>
+    </div>
+    <a class="nav__item " href="../ozp/index.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+        
+      </svg>
+      <span class="nav__item_name">ОЗП</span>
+    </a>
+    <a class="nav__item " href="../gor/index.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+        
+      </svg>
+      <span class="nav__item_name">ГОР</span>
+    </a>
+    <a class="nav__item " href="../ptm/index.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+        
+      </svg>
+      <span class="nav__item_name">ПТМ</span>
+      <span class="nav__item_badge" data-badge="strips"></span>
+    </a>
+    <a class="nav__item active" href="../ot/index.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+        
+      </svg>
+      <span class="nav__item_name">ОТ</span>
+    </a>
+    <a class="nav__item " href="../vob/index.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+        
+      </svg>
+      <span class="nav__item_name">В. об</span>
+    </a>
+    <a class="nav__item " href="../vej/index.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+        
+      </svg>
+      <span class="nav__item_name">В. еж</span>
+    </a>
+    <a class="nav__item " href="../trigr/index.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+
+      </svg>
+      <span class="nav__item_name">III группа</span>
+    </a>
+  </div>
+</nav>  </div>
+</header>  <div class="columns">
+    <main class="columns__main ">
+      <div class="sections desktop top">
+      <ul class="sections__list">
+      <li class="sections__item">
+        <a class="sections__link " href="9.html">9 Билет</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="10.html">10 Билет</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link active" href="11.html">11 Билет</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="12.html">12 Билет</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="13.html">13 Билет</a>
+      </li>
+    </ul>
+  </div>
+
+<section class="quotes">
+
+<article class="quote">
+  <div class="quote__frame">
+    <header class="quote__header">
+              <a class="quote__header_permalink">Вопрос 1. Разрешается ли заходить без необходимости за ограждения технологического и электрического оборудования?</a>
+            <div class="quote__header_date">
+        Ответ:
+      </div>
+    </header>
+    <div class="quote__body">
+<p>Не заходить без необходимости и без разрешения руководителя работ за ограждения технологического и электрического оборудования.</p>
+    </div>
+  </div>
+</article>                                        
+ 
+<article class="quote">
+  <div class="quote__frame">
+    <header class="quote__header">
+              <a class="quote__header_permalink">Вопрос 2. Порядок извещения непосредственного руководителя работ о недостатках, влияющих на безопасность труда.</a>
+            <div class="quote__header_date">
+        Ответ:
+      </div>
+    </header>
+    <div class="quote__body">
+<p>Порядок извещения непосредственного руководителя работ о недостатках, влияющих на безопасность труда, обнаруженных перед началом
+работы.
+<br>При выявлении недостатков, влияющих на безопасность труда, обнаруженных перед началом выполнения работ, следует:
+<br>- сообщить непосредственному руководителю работ;
+<br>- не приступать к работе до полного устранения выявленных недостатков.</p>
+    </div>
+  </div>
+</article>                                        
+    
+<article class="quote">
+  <div class="quote__frame">
+    <header class="quote__header">
+              <a class="quote__header_permalink">Вопрос 3. Требования охраны труда во время работы с мегаомметром.</a>
+            <div class="quote__header_date">
+        Ответ:
+      </div>
+    </header>
+    <div class="quote__body">
+<p>При выполнении работ в электроустановках не допускается приближаться к находящимся под напряжением неогражденным токоведущим
+частям.
+<br>При выполнении работ не допускается снимать плакаты и ограждения, проходить под ограждения, а также расширять рабочее место.
+<br>Не допускается в электроустановках работать в согнутом положении, если при выпрямлении расстояние до токоведущих частей будет менее расстояния, указанного в таблице 1. Не допускается при работе около неогражденных токоведущих частей располагаться так, чтобы эти части находились сзади работника или по обеим сторонам от него.
+<br>Не допускается прикасаться без применения электрозащитных средств к изоляторам, изолирующим частям оборудования, находящегося под
+напряжением.
+<br>При выполнении работ с мегаомметром не допускается прикасаться к сторонним и открытым проводящим частям электроустановки.
+<br>Передвигаться в электроустановках необходимо с осторожностью, без резких движений, чтобы не вызвать несанкционированных отключений из-
+за случайного воздействия на ключи, кнопки и другую аппаратуру управления.
+<br>При приближении грозы должны быть прекращены все работы, проводимые в ОРУ и ЗРУ.</p>
+    </div>
+  </div>
+</article>                                        
+    
+<article class="quote">
+  <div class="quote__frame">
+    <header class="quote__header">
+              <a class="quote__header_permalink">Вопрос 4. Определение «взрывоопасная зона».</a>
+            <div class="quote__header_date">
+        Ответ:
+      </div>
+    </header>
+    <div class="quote__body">
+<p>Взрывоопасная зона - помещение или ограниченное пространство в помещении или наружной установке, в котором имеются или могут
+образоваться взрывоопасные смеси.</p>
+    </div>
+  </div>
+</article>                                        
+    
+<article class="quote">
+  <div class="quote__frame">
+    <header class="quote__header">
+              <a class="quote__header_permalink">Вопрос 5. Назовите порядок оказания первой помощи при переохлаждении и обморожении.</a>
+            <div class="quote__header_date">
+        Ответ:
+          </div>
+    </header>
+    <div class="quote__body">
+<p>Признаки переохлаждения:
+    <br>• озноб и дрожь;
+    <br>• нарушение сознания: заторможенность и апатия, бред и галлюцинации; неадекватное поведение;
+    <br>• посинение или побледнение губ;
+    <br>• снижение температуры тела.
+<br>Первая помощь:
+    <br>• доставить в тёплое помещение, дополнительно укрыть, предложить тёплое сладкое питьё или пищу с большим содержанием сахара;
+    <br>• немедленно снять одежду и поместить пострадавшего под горячий душ (терпит локоть), или обложить тёплыми грелками;
+    <br>• после обязательно укрыть тёплым одеялом или надеть тёплую сухую одежду продолжать давать тёплое сладкое питьё до прибытия врача.
+<br>Обморожение — повреждение тканей, возникающее в результате длительного воздействия низкой температуры воздуха, при соприкосновении тела с холодным металлом на морозе, жидким или сжатым воздухом или сухой углекислотой.
+<br>Признаки обморожения.
+    <br>• кожа в области обморожения краснеет, затем резко бледнеет и теряет чувствительность, становится холодной на ощупь;
+    <br>• возможно появление на поверхности кожи пузырьков со светлым содержимым, которые нельзя вскрывать, при более сильном обморожении образуются пузыри с кровяным содержимым, возникает омертвение кожи и подкожно-жировой клетчатки;
+    <br>• нет пульса у запястий и лодыжек;
+    <br><br>• при постукивании пальцем - «деревянный» звук.
+<br>Первая помощь:
+    <br>• скорейшее восстановлении кровообращения на обмороженном участке;
+    <br>• необходимо немедленно прекратить работу и перейти в отапливаемое помещение, где приступить к оказанию первой помощи. Сообщить непосредственному руководителю работ;
+    <br>• снять с обмороженных конечностей одежду и обувь, перчатки, следует снимать крайне осторожно, чтобы не повредить обмороженные пальцы. Если без усилий снять обувь не удаётся, то обувь распарывается ножом по швам;
+    <br>• немедленно укрыть повреждённые конечности от внешнего тепла теплоизолирующей повязкой с большим количеством ваты или одеялами с тёплой одеждой;
+    <br>• дать обильное тёплое питье (тёплые воду, сладкий чай, кофе);
+    <br>• обязательно дать 1-2 таблетки анальгина (предварительно уточнив, нет ли у пострадавшего аллергии на этот препарат);
+    <br>• обязательно вызвать «Скорую помощь»;
+    <br>• нельзя растирать обмороженную кожу, использовать тёплые грелки, ванну, тёплую воду из-под крана</p>
+    </div>
+  </div>
+</article>                    
+    
+<article class="quote">
+  <div class="quote__frame">
+    <header class="quote__header">
+              <a class="quote__header_permalink">Вопрос 6. В каких случаях пострадавшему проводятся реанимационные мероприятия и как они выполняются (с отработкой практических навыков на тренажере)?</a>
+            <div class="quote__header_date">
+        Ответ:
+      </div>
+    </header>
+    <div class="quote__body">
+<p>При отсутствии у пострадавшего признаков жизни (отсутствует дыхание, сознание пульс, покров синюшный, а зрачки широкие (0,5 см в диаметре)) нельзя считать его мёртвым, так как смерть часто бывает лишь кажущейся или клинической. В таком состоянии пострадавший, если ему не будет оказана немедленная первая помощь (реанимация) в виде искусственного дыхания и наружного (непрямого) массажа сердца, действительно умрёт. Начинать реанимационные мероприятия следует немедленно только после освобождения пострадавшего от воздействия электрического тока, и производить их непрерывно до достижения положительного результата или появления признаков биологической смерти (высыхания роговицы глаза, появления трупных пятен или трупного окоченения). Вопрос о целесообразности или бесцельности дальнейшего проведения реанимационных мероприятий решается только врачом.</p>
+    </div>
+  </div>
+</article>                                        
+
+<article class="quote">
+  <div class="quote__frame">
+    <header class="quote__header">
+              <a class="quote__header_permalink">Вопрос 7. Какому испытанию и контролю подвергается баллон на заводе-изготовителе?</a>
+            <div class="quote__header_date">
+        Ответ:
+      </div>
+    </header>
+    <div class="quote__body">
+<p>На заводе-изготовителе баллон подвергается визуальному, измери­тельному контролю, испытанию на герметичность и гидравлическому испыта­нию пробным давлением 22,5 МПа.</p>
+    </div>
+  </div>
+</article>                                        
+    
+<article class="quote">
+  <div class="quote__frame">
+    <header class="quote__header">
+              <a class="quote__header_permalink">Вопрос 8. Какие работы относятся к газоопасным?</a>
+            <div class="quote__header_date">
+        Ответ:
+      </div>
+    </header>
+    <div class="quote__body">
+<p>К газоопасным относятся работы, связанные с внутренним осмотром, чисткой, ремонтом, разгерметизацией технологического оборудования,
+коммуникаций, установкой и снятием заглушек на оборудовании и трубопроводах, а также работы внутри емкостей (аппараты, печи технологические, резервуары, цистерны, а также коллекторы, тоннели, колодцы, приямки, траншеи (глубиной от 1 м) и другие аналогичные места), при проведении которых имеется или не исключена возможность выделения в рабочую зону взрывопожароопасных или вредных паров, газов и других веществ, способных вызвать взрыв, загорание, оказать вредное воздействие на организм человека, а также работы при недостаточном содержании кислорода (объемная доля ниже 20 %) в рабочей зоне.</p>
+    </div>
+  </div>
+</article>                                        
+
+<article class="quote">
+  <div class="quote__frame">
+    <header class="quote__header">
+              <a class="quote__header_permalink">Вопрос 9. Проверка средств сигнализации, противоаварийных защит и блокировок на приемо-сдаточном пункте. Периодичность, типовые операции, регламентирующие документы, оформление документации.</a>
+            <div class="quote__header_date">
+        Ответ:
+      </div>
+    </header>
+    <div class="quote__body">
+
+    </div>
+  </div>
+</article>
+
+<article class="quote">
+  <div class="quote__frame">
+    <header class="quote__header">
+              <a class="quote__header_permalink">Вопрос 10. Назовите мероприятия по подготовке к работе с шуруповертом.</a>
+            <div class="quote__header_date">
+        Ответ:
+      </div>
+    </header>
+    <div class="quote__body">
+<p>Перед установкой аккумуляторного блока убедиться, что выключатель находится в выключенном положении.
+<br>Убедится в целостности корпусных деталей, целостности изоляции шнура, проверить, соответствует ли напряжение и частота тока паспортным данным.</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<div class="sections desktop bottom">
+      <ul class="sections__list">
+      <li class="sections__item">
+        <a class="sections__link " href="9.html">9 Билет</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="10.html">10 Билет</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link active" href="11.html">11 Билет</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="12.html">12 Билет</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="13.html">13 Билет</a>
+      </li>
+    </ul>
+  </div>
+    </main>
+      </div>
+  <footer class="footer">
+    <div class="footer__legal">
+      <p class="footer__legal_para">
+        Идея проекта &copy; vselyudiprodakshn. 2015
+      </p>
+    </div>
+    <div class="footer__badges">
+</div></footer>
+
+  <div class="nav mobile">
+  <div class="nav__wrap">
+    <a class="nav__item about " href="../faq.html">
+      <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+        <path d="M26 19a6 6 0 1 1-12 0 6 6 0 0 1 12 0zm1 0a7 7 0 1 1-14 0 7 7 0 0 1 14 0zm-6-3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-1 1.875c.345 0 .625.28.625.625v4a.625.625 0 1 1-1.25 0v-4c0-.345.28-.625.625-.625z"></path>
+      </svg>
+      <span class="nav__item_name">О проекте</span>
+      </a>
+      <div class="nav__item theme">
+        <svg class="nav__item_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+          <g class="moon">
+            <path d="M24.295 22.652c-.175-.094-.828.06-1.11.06-3.785 0-6.854-2.931-6.854-6.644 0-.403 0-.736.126-1.12a.13.13 0 0 0 .007-.049c-.007-.12-.066-.225-.166-.104a6.683 6.683 0 0 0-.345.446c-.578.834-.945 2.006-.945 3.206 0 3.073 2.54 5.564 5.672 5.564 1.651 0 3.26-.796 3.615-1.359zm.671-1.208c-.437.183-.776.28-1.782.28-3.228 0-5.844-2.568-5.844-5.735 0-.91.113-1.473.244-1.993l.002-.007.05-.194.013-.052c.04-.155.08-.31.119-.474.034-.146-.076-.285-.228-.268a2.1 2.1 0 0 0-.467.113 2.703 2.703 0 0 0-.34.15c-1.388.73-2.733 2.817-2.733 5.183C14 22.067 16.99 25 20.68 25c2.49 0 4.468-1.222 5.114-2.83l.021-.053a3.162 3.162 0 0 0 .183-.742c.02-.17-.15-.289-.312-.228a10.53 10.53 0 0 0-.547.224l-.145.061-.027.012z"></path>
+          </g>
+          <g class="sun">
+            <path d="M20 13a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 1 0v1a.5.5 0 0 1-.5.5zM15.757 14.757a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 1 1 .707-.707l.707.707a.5.5 0 0 1 0 .707zM25.657 13.343a.5.5 0 0 1 0 .707l-.707.707a.5.5 0 1 1-.707-.707l.707-.707a.5.5 0 0 1 .707 0zM15.757 23.243a.5.5 0 0 1 0 .707l-.707.707a.5.5 0 0 1-.707-.707l.707-.707a.5.5 0 0 1 .707 0zM28 19a.5.5 0 0 1-.5.5h-1a.5.5 0 1 1 0-1h1a.5.5 0 0 1 .5.5zM14 19a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1 0-1h1a.5.5 0 0 1 .5.5zM25.657 24.657a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 1 1 .707-.707l.707.707a.5.5 0 0 1 0 .707zM19.5 26.5a.5.5 0 0 0 1 0v-1a.5.5 0 1 0-1 0v1z"></path>
+            <path d="M24 19a4 4 0 1 1-8 0 4 4 0 0 1 8 0zm-1 0a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+          </g>
+      </svg>
+      <span class="nav__item_name">Тема</span>
+    </div>
+    
+      <ul class="sections__list">
+      <li class="sections__item">
+        <a class="sections__link " href="9.html">9 Билет</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="10.html">10 Билет</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link active" href="11.html">11 Билет</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="12.html">12 Билет</a>
+      </li>
+      <li class="sections__item">
+        <a class="sections__link " href="13.html">13 Билет</a>
+      </li>
+    </ul>
+ 
+  </div>
+  </div>
+</body>
+</html>
